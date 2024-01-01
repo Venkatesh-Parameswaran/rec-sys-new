@@ -12,7 +12,7 @@ file =  r'D:\Venkatesh\Projects\Recommend system\Content Based Rec\Pycharm\venv\
 movies  = pd.read_csv('data_not_final.csv')
 
 
-similarity = pickle.load(open(r'D:\Venkatesh\Projects\Recommend system\Content Based Rec\Pycharm\test_lfs\test-mrs\reduced_final_similarity_3.5k_new.pkl','rb'))
+similarity = pickle.load(open('reduced_final_similarity_3.5k_new.pkl','rb'))
 # https://www.omdbapi.com/?i=tt3896198&apikey=a9a9a557
 
 def fetch_poster(movie_id):
