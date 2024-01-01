@@ -9,7 +9,7 @@ file =  r'D:\Venkatesh\Projects\Recommend system\Content Based Rec\Pycharm\venv\
 # movies_dict = pickle.load(open( r'D:\Venkatesh\Projects\Recommend system\Content Based Rec\Pycharm\venv\Movies\data_dict_7.6k.pkl','rb'))
 # movies = pd.DataFrame(movies_dict)
 
-movies  = pd.read_csv(r'D:\Venkatesh\Projects\Recommend system\Content Based Rec\Pycharm\test_lfs\test-mrs\data_not_final.csv')
+movies  = pd.read_csv('data_not_final.csv')
 
 
 similarity = pickle.load(open(r'D:\Venkatesh\Projects\Recommend system\Content Based Rec\Pycharm\test_lfs\test-mrs\reduced_final_similarity_3.5k_new.pkl','rb'))
