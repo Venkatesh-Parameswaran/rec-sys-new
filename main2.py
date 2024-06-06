@@ -88,7 +88,7 @@ if st.button('Recommend'):
 st.markdown("""
     <style>
         .stApp {
-            background-image: url("https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai bk4.gif");
+            background-image: url("https://github.com/Venkatesh-Parameswaran/rec-sys-new/blob/main/mm%20bk1.png");
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
