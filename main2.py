@@ -4,73 +4,65 @@ import pickle
 import requests
 import numpy as np
 
+# Load the movies data and similarity matrix
+movies = pd.read_csv('data_not_final.csv')
+similarity = pickle.load(open('reduced_final_similarity_3.5k_new.pkl', 'rb'))
 
-file =  r'D:\Venkatesh\Projects\Recommend system\Content Based Rec\Pycharm\venv\Movies'
-# movies_dict = pickle.load(open( r'D:\Venkatesh\Projects\Recommend system\Content Based Rec\Pycharm\venv\Movies\data_dict_7.6k.pkl','rb'))
-# movies = pd.DataFrame(movies_dict)
-
-movies  = pd.read_csv('data_not_final.csv')
-
-
-similarity = pickle.load(open('reduced_final_similarity_3.5k_new.pkl','rb'))
-# https://www.omdbapi.com/?i=tt3896198&apikey=a9a9a557
-
+# Function to fetch movie posters from OMDB API
 def fetch_poster(movie_id):
     api_key = "a9a9a557"  # Replace with your actual OMDB API key
-    url = 'https://www.omdbapi.com/?i={}&apikey={}'.format(movie_id, api_key)
+    url = f'https://www.omdbapi.com/?i={movie_id}&apikey={api_key}'
     response = requests.get(url)
-
     if response.status_code == 200:
         data = response.json()
         poster_url = data.get('Poster')
         return poster_url
     else:
-        print("Error: Failed to fetch data from the OMDB API.")
         return None
 
 # Recommendation function
 def recommend_movies(movie_name, similarity_matrix, movie_data, top_n=10):
-    # Convert the user input to lowercase
     movie_name = movie_name.lower()
-
     if movie_name not in movie_data['title'].str.lower().values:
         return "Movie not found in the database."
-
     movie_index = movie_data[movie_data['title'].str.lower() == movie_name].index[0]
     similarity_scores = similarity_matrix[movie_index]
-
-    # Find the indices of the top similar movies (excluding the input movie itself)
     similar_movie_indices = np.argsort(similarity_scores)[::-1][1:top_n + 1]
-
-    # Get movie titles based on the indices
     recommended_movies = [movie_data.iloc[idx]['title'] for idx in similar_movie_indices]
-
     return recommended_movies
 
-
 # Streamlit web application
+st.title('MovieMate: Your Personal Movie Recommender 🎬')
 
-# Streamlit web application
-st.title('Movie Recommender System of Venkatesh')
+# Introduction and description
+st.markdown("""
+    <div style="text-align: center;">
+        <h2 style="font-family: 'Arial Black', sans-serif; color: #FF5733; font-size: 40px;">
+            Welcome to MovieMate! <span style="font-size: 30px;">(Click for Tailored Recommendations!)</span>
+        </h2>
+        <p style="font-family: Arial, sans-serif; color: #FFA07A; font-size: 20px;">
+            Developed MovieMate, a movie recommendation system that provides personalized recommendations across a dataset of 50,000 movies.
+            Orchestrated the development and deployment of a movie recommendation system, leveraging TF-IDF, spaCy, NLTK, and clustering machine learning algorithms like DB scan for customized recommendations.
+            Boosted user interaction and retention rates post-implementation of MovieMate using NLP algorithms for personalized recommendations.
+        </p>
+    </div>
+""", unsafe_allow_html=True)
 
-# Define your selectbox to choose the movie
+# Movie selection
 selected_movie_name = st.selectbox(
-    'What movie are you interested in',
-    movies['title'].values)
+    'What movie are you interested in?',
+    movies['title'].values
+)
 
 # Check if the "Recommend" button is clicked
 if st.button('Recommend'):
     recommendations = recommend_movies(selected_movie_name, similarity, movies)
-
     if isinstance(recommendations, str):
         st.error(recommendations)  # Display an error message if the movie is not found
     else:
         num_recs = len(recommendations)  # All recommendations
-
-        # Display two movies in a row with space between them and expander buttons
         for i in range(0, num_recs, 2):
             col1, col2 = st.columns(2)
-
             for j in range(2):
                 if i + j < num_recs:
                     recommended_movie = recommendations[i + j]
@@ -78,42 +70,45 @@ if st.button('Recommend'):
                     movie_poster_url = fetch_poster(movie_data['imdb_id'])
 
                     with col1 if j == 0 else col2:
-                        # Display movie poster with a larger width
                         st.image(movie_poster_url, width=340)
-
-
-
-                        # Add custom spacing using HTML
                         st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
-
-                        # Add space between two movie columns
                         st.markdown("<div style='width: 20px;'></div>", unsafe_allow_html=True)
 
-                        # Create an expander button to show additional information
                         expander = st.expander(f' More Info  -   *********{recommended_movie}*********')
-
                         with expander:
                             st.subheader('Overview')
                             st.write(movie_data['overview'])
-
                             st.subheader('Lead Actors')
                             st.write(movie_data['actor'])
-
                             st.subheader('Director')
                             st.write(movie_data['director'])
-
                             st.subheader('Genre')
                             st.write(movie_data['genre_names'])
 
+st.markdown("""
+    <style>
+        .stApp {
+            background-image: url("https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai bk4.gif");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
 
+        .prediction-output {
+            font-family: 'Arial', sans-serif;
+            color: #00FF00; /* Light Green color */
+            font-size: 30px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
 
-
-# print(movies.iloc[:,0:2])
-# df_2 = movies.drop('Unnamed: 0.1', axis=1)
-# df_2.to_csv(r'D:\Venkatesh\Projects\Recommend system\Content Based Rec\Pycharm\test_lfs\test-mrs\data2.csv', index=False)
-#
-# print(movies['Unnamed: 0'])
-
-#
-# df_2 = movies.drop('Unnamed: 0', axis=1)
-# df_2.to_csv(r'D:\Venkatesh\Projects\Recommend system\Content Based Rec\Pycharm\test_lfs\test-mrs\data3.csv',index=False)
+        .highlight {
+            font-size: 40px;
+            font-weight: bold;
+            color: #FFD700; /* Gold color */
+        }
+    </style>
+""", unsafe_allow_html=True)
