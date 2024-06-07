@@ -94,7 +94,7 @@ page_bg_img = f'''
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: #0a0d36;
+        background-color: #000000;
         text-align: center;
         padding: 10px;
         font-size: 14px;
