@@ -3,7 +3,6 @@ import pandas as pd
 import pickle
 import requests
 import numpy as np
-import os
 
 # Load movie data and similarity matrix
 movies = pd.read_csv('data_not_final.csv')
@@ -34,6 +33,7 @@ def recommend_movies(movie_name, similarity_matrix, movie_data, top_n=10):
 
 # Set background image using an online file
 background_image_url = "https://raw.githubusercontent.com/Venkatesh-Parameswaran/rec-sys-new/main/background4.jpg"
+hero_img_url = "https://raw.githubusercontent.com/Venkatesh-Parameswaran/rec-sys-new/main/bk%20img5.jpg"
 
 page_bg_img = f'''
 <style>
@@ -43,19 +43,45 @@ page_bg_img = f'''
         background-repeat: no-repeat;
         background-attachment: fixed;
     }}
+    .stTitle {{
+        font-size: 48px;
+        color: #FFD700;
+        text-align: center;
+        font-family: 'Georgia', serif;
+        text-shadow: 2px 2px #000000;
+    }}
+    .stSubheader {{
+        font-size: 24px;
+        color: #FFD700;
+        font-family: 'Arial', sans-serif;
+    }}
+    .stMarkdown {{
+        color: #FFD700;
+        font-family: 'Arial', sans-serif;
+    }}
+    .expander-content {{
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #FFD700;
+    }}
+    .welcome-message {{
+        font-size: 20px;
+        color: #FFFFFF;
+        text-align: center;
+        font-family: 'Verdana', sans-serif;
+        margin-bottom: 20px;
+    }}
 </style>
 '''
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-
-# Example hero image URL (hosted online for reliability)
-hero_img_url = "https://raw.githubusercontent.com/Venkatesh-Parameswaran/rec-sys-new/main/bk%20img5.jpg"
-
 # Display hero image
 st.image(hero_img_url, use_column_width=True)
 
-# Streamlit web application
-st.title('MovieMate: Tailored Movie Recommendations')
+# Welcome message
+st.markdown('<div class="welcome-message">Welcome to CineMate! Dive into a world of personalized movie recommendations and discover your next favorite film!</div>', unsafe_allow_html=True)
+
+# Streamlit web application title
+st.markdown('<h1 class="stTitle">CineMate: Your Ultimate Movie Companion</h1>', unsafe_allow_html=True)
 
 # Define your selectbox to choose the movie
 selected_movie_name = st.selectbox('What movie are you interested in?', movies['title'].values)
@@ -88,20 +114,20 @@ if st.button('Recommend'):
                         # Create an expander button to show additional information
                         expander = st.expander(f'More Info - {recommended_movie}')
                         with expander:
-                            st.subheader('Overview')
-                            st.write(movie_data['overview'])
-                            st.subheader('Lead Actors')
-                            st.write(movie_data['actor'])
-                            st.subheader('Director')
-                            st.write(movie_data['director'])
-                            st.subheader('Genre')
-                            st.write(movie_data['genre_names'])
+                            st.markdown('<h2 class="stSubheader">Overview</h2>', unsafe_allow_html=True)
+                            st.markdown(f'<div class="stMarkdown">{movie_data["overview"]}</div>', unsafe_allow_html=True)
+                            st.markdown('<h2 class="stSubheader">Lead Actors</h2>', unsafe_allow_html=True)
+                            st.markdown(f'<div class="stMarkdown">{movie_data["actor"]}</div>', unsafe_allow_html=True)
+                            st.markdown('<h2 class="stSubheader">Director</h2>', unsafe_allow_html=True)
+                            st.markdown(f'<div class="stMarkdown">{movie_data["director"]}</div>', unsafe_allow_html=True)
+                            st.markdown('<h2 class="stSubheader">Genre</h2>', unsafe_allow_html=True)
+                            st.markdown(f'<div class="stMarkdown">{movie_data["genre_names"]}</div>', unsafe_allow_html=True)
 
 # Thank you message
 st.markdown("""
-## Thank You!
-Thank you for using MovieMate. We appreciate your interest and hope you found this application helpful.
-""")
+<h2 class="stSubheader">Thank You!</h2>
+<p class="stMarkdown">Thank you for using CineMate. We appreciate your interest and hope you found this application helpful.</p>
+""", unsafe_allow_html=True)
 
 # Footer
 st.markdown("""
@@ -119,6 +145,6 @@ st.markdown("""
 }
 </style>
 <div class="footer">
-    <p>© 2024 MovieMate. All rights reserved. | Developed by Venkatesh</p>
+    <p>© 2024 CineMate. All rights reserved. | Developed by Venkatesh</p>
 </div>
 """, unsafe_allow_html=True)
