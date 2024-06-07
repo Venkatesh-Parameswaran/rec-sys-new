@@ -32,22 +32,20 @@ def recommend_movies(movie_name, similarity_matrix, movie_data, top_n=10):
     recommended_movies = [movie_data.iloc[idx]['title'] for idx in similar_movie_indices]
     return recommended_movies
 
-# Set background image using a local file
-background_image_path = "https://github.com/Venkatesh-Parameswaran/rec-sys-new/blob/main/background4.jpg"
+# Set background image using an online file
+background_image_url = "https://raw.githubusercontent.com/Venkatesh-Parameswaran/rec-sys-new/main/background4.jpg"
 
-# Ensure the background image file exists
-if os.path.isfile(background_image_path):
-    page_bg_img = f'''
-    <style>
-        .stApp {{
-            background-image: url("file://{os.path.abspath(background_image_path)}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-    </style>
-    '''
-    st.markdown(page_bg_img, unsafe_allow_html=True)
+page_bg_img = f'''
+<style>
+    .stApp {{
+        background-image: url("{background_image_url}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }}
+</style>
+'''
+st.markdown(page_bg_img, unsafe_allow_html=True)
 else:
     st.error("Background image not found. Please check the path.")
 
