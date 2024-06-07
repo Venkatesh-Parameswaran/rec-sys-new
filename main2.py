@@ -109,6 +109,42 @@ page_bg_img = f'''
 '''
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
+
+# Define a Streamlit Session State to persist sidebar state
+def init_session_state():
+    session_state = st.session_state
+    if 'sidebar_open' not in session_state:
+        session_state.sidebar_open = False
+
+# Create a button in the main content area to toggle the sidebar
+if st.button("About MovieMate"):
+    st.session_state.sidebar_open = not st.session_state.sidebar_open
+
+# Initialize the session state
+init_session_state()
+
+# Show/hide sidebar based on session state
+if st.session_state.sidebar_open:
+    st.sidebar.title("About")
+    st.sidebar.info("""
+        **MovieMate** is your ultimate destination for personalized movie recommendations. Whether you're a film buff or just looking for your next favorite flick, MovieMate has you covered.
+        
+        ### Key Features:
+        - **Personalized Recommendations**: MovieMate analyzes your preferences to suggest movies tailored to your taste.
+        - **Vast Movie Database**: With a collection of over 50,000 movies, there's something for everyone.
+        - **Cutting-Edge Technology**: MovieMate leverages advanced NLP algorithms and machine learning techniques like TF-IDF and DBSCAN for precise recommendations.
+        - **User-Friendly Interface**: Simple and intuitive, MovieMate makes finding your next cinematic adventure effortless.
+
+        ### How It Works:
+        1. **Select Your Favorite Movie**: Choose a movie you love from our extensive collection.
+        2. **Get Recommendations**: MovieMate analyzes your selection and provides a curated list of similar movies.
+        3. **Explore and Enjoy**: Discover new movies, read synopses, and find your next film to watch.
+
+        ### Developer:
+        Developed by Venkatesh, MovieMate showcases the power of AI and machine learning in delivering personalized movie recommendations. Have feedback or questions? Feel free to reach out!
+    """)
+
+
 # Streamlit web application title
 st.markdown('<div class="title"><h1 class="title-main">MovieMate</h1><h2 class="title-sub">Your Personalized Recommender</h2></div>', unsafe_allow_html=True)
 
