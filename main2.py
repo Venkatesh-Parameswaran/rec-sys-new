@@ -120,7 +120,7 @@ st.markdown(
     <div class="welcome-message">
         <h2 style="font-size: 30px; color: #FFFFFF;">Welcome to MovieMate!</h2>
         <p>MovieMate offers you personalized movie recommendations tailored to your taste. Dive into a world of cinematic exploration and discover your next favorite film! 
-        Simply select a movie you love, hit the "Recommend" button, and let MovieMate suggest similar movies that you might enjoy. Explore, discover, and find your next cinematic adventure with MovieMate!</p>
+        <p>Simply select a movie you love, hit the "Recommend" button, and let MovieMate suggest similar movies that you might enjoy. Explore, discover, and find your next cinematic adventure with MovieMate!</p>
     </div>
     ''', 
     unsafe_allow_html=True
@@ -142,6 +142,8 @@ if st.button('Recommend'):
     if isinstance(recommendations, str):
         st.error(recommendations)  # Display an error message if the movie is not found
     else:
+        # Creative statement before displaying recommended movies
+        st.markdown('<h2 class="stSubheader" style="color: #FFD700;">Here are some movies you might enjoy:</h2>', unsafe_allow_html=True)
         num_recs = len(recommendations)  # All recommendations
         for i in range(0, num_recs, 2):
             col1, col2 = st.columns(2)
