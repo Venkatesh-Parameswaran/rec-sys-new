@@ -103,7 +103,7 @@ st.markdown('<div class="author">By Venkatesh</div>', unsafe_allow_html=True)
 st.markdown(
     '''
     <div class="welcome-message">
-        <h2 style="font-size: 24px; color: #FFD700;">Welcome to MovieMate!</h2>
+        <h2 style="font-size: 24px; color: #FFFFFF;">Welcome to MovieMate!</h2>
         <p>MovieMate offers you personalized movie recommendations tailored to your taste. Dive into a world of cinematic exploration and discover your next favorite film! 
         <p>Simply select a movie you love, hit the "Recommend" button, and let MovieMate suggest similar movies that you might enjoy. Explore, discover, and find your next cinematic adventure with MovieMate!</p>
     </div>
