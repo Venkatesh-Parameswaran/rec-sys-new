@@ -105,7 +105,7 @@ st.markdown('<div class="welcome-message">Welcome to MovieMate! Dive into a worl
 # Display hero image
 st.markdown(
     f'<img src="{hero_img_url}" style="width:100%;" class="hero-image">', 
-    unsafe_allow_html=True
+    unsafe_allow_html=True )
 
 # Define your selectbox to choose the movie
 selected_movie_name = st.selectbox('What movie are you interested in?', movies['title'].values)
