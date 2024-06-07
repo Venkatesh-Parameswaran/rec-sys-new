@@ -88,7 +88,7 @@ if st.button('Recommend'):
 st.markdown("""
     <style>
         .stApp {
-            background-image: url("https://github.com/Venkatesh-Parameswaran/rec-sys-new/blob/main/mm bk3.jpg");
+            background-image: url("https://github.com/Venkatesh-Parameswaran/rec-sys-new/main/mm bk3.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
