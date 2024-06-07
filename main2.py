@@ -100,6 +100,10 @@ page_bg_img = f'''
         font-size: 14px;
         color: white;
     }}
+    .selectbox-label {{
+        font-size: 24px;
+        color: #FFFFFF;
+    }}
 </style>
 '''
 st.markdown(page_bg_img, unsafe_allow_html=True)
@@ -116,7 +120,7 @@ st.markdown(
     <div class="welcome-message">
         <h2 style="font-size: 30px; color: #FFFFFF;">Welcome to MovieMate!</h2>
         <p>MovieMate offers you personalized movie recommendations tailored to your taste. Dive into a world of cinematic exploration and discover your next favorite film! 
-        <p>Simply select a movie you love, hit the "Recommend" button, and let MovieMate suggest similar movies that you might enjoy. Explore, discover, and find your next cinematic adventure with MovieMate!</p>
+        Simply select a movie you love, hit the "Recommend" button, and let MovieMate suggest similar movies that you might enjoy. Explore, discover, and find your next cinematic adventure with MovieMate!</p>
     </div>
     ''', 
     unsafe_allow_html=True
@@ -129,7 +133,8 @@ st.markdown(
 )
 
 # Define your selectbox to choose the movie
-selected_movie_name = st.selectbox('What movie are you interested in?', movies['title'].values)
+st.markdown('<label class="selectbox-label">What movie are you interested in?</label>', unsafe_allow_html=True)
+selected_movie_name = st.selectbox('', movies['title'].values)
 
 # Check if the "Recommend" button is clicked
 if st.button('Recommend'):
@@ -159,19 +164,19 @@ if st.button('Recommend'):
                         # Create an expander button to show additional information
                         expander = st.expander(f'More Info - {recommended_movie}')
                         with expander:
-                            st.markdown('<h2 class="stSubheader">Overview</h2>', unsafe_allow_html=True)
-                            st.markdown(f'<div class="stMarkdown">{movie_data["overview"]}</div>', unsafe_allow_html=True)
-                            st.markdown('<h2 class="stSubheader">Lead Actors</h2>', unsafe_allow_html=True)
-                            st.markdown(f'<div class="stMarkdown">{movie_data["actor"]}</div>', unsafe_allow_html=True)
-                            st.markdown('<h2 class="stSubheader">Director</h2>', unsafe_allow_html=True)
-                            st.markdown(f'<div class="stMarkdown">{movie_data["director"]}</div>', unsafe_allow_html=True)
-                            st.markdown('<h2 class="stSubheader">Genre</h2>', unsafe_allow_html=True)
-                            st.markdown(f'<div class="stMarkdown">{movie_data["genre_names"]}</div>', unsafe_allow_html=True)
+                            st.markdown('<h2 class="stSubheader" style="color: #FFFFFF;">Overview</h2>', unsafe_allow_html=True)
+                            st.markdown(f'<div class="stMarkdown" style="color: #FFFFFF;">{movie_data["overview"]}</div>', unsafe_allow_html=True)
+                            st.markdown('<h2 class="stSubheader" style="color: #FFFFFF;">Lead Actors</h2>', unsafe_allow_html=True)
+                            st.markdown(f'<div class="stMarkdown" style="color: #FFFFFF;">{movie_data["actor"]}</div>', unsafe_allow_html=True)
+                            st.markdown('<h2 class="stSubheader" style="color: #FFFFFF;">Director</h2>', unsafe_allow_html=True)
+                            st.markdown(f'<div class="stMarkdown" style="color: #FFFFFF;">{movie_data["director"]}</div>', unsafe_allow_html=True)
+                            st.markdown('<h2 class="stSubheader" style="color: #FFFFFF;">Genre</h2>', unsafe_allow_html=True)
+                            st.markdown(f'<div class="stMarkdown" style="color: #FFFFFF;">{movie_data["genre_names"]}</div>', unsafe_allow_html=True)
 
 # Thank you message
 st.markdown("""
-<h2 class="stSubheader">Thank You!</h2>
-<p class="stMarkdown">Thank you for using MovieMate. We appreciate your interest and hope you found this application helpful.</p>
+<h2 class="stSubheader" style="color: #FFFFFF;">Thank You!</h2>
+<p class="stMarkdown" style="color: #FFFFFF;">Thank you for using MovieMate. We appreciate your interest and hope you found this application helpful.</p>
 """, unsafe_allow_html=True)
 
 # Footer
