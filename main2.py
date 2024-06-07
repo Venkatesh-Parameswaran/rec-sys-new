@@ -100,7 +100,9 @@ st.markdown('<div class="title"><h1 class="title-main">MovieMate</h1><h2 class="
 st.markdown('<div class="author">By Venkatesh</div>', unsafe_allow_html=True)
 
 # Welcome message
-st.markdown('<div class="welcome-message">Welcome to MovieMate! Dive into a world of personalized movie recommendations and discover your next favorite film!</div>', unsafe_allow_html=True)
+st.markdown('<div class="welcome-message">Welcome to MovieMate!
+
+MovieMate offers you personalized movie recommendations tailored to your taste. Dive into a world of cinematic exploration and discover your next favorite film! Simply select a movie you love, hit the "Recommend" button, and let MovieMate suggest similar movies that you might enjoy. Explore, discover, and find your next cinematic adventure with MovieMate!</div>', unsafe_allow_html=True)
 
 # Display hero image
 st.markdown(
