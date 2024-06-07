@@ -133,7 +133,7 @@ st.markdown(
 )
 
 # Define your selectbox to choose the movie
-st.markdown('<label class="selectbox-label">Choose a movie you enjoyed, and we'll recommend others that you'll love!</label>', unsafe_allow_html=True)
+st.markdown("<label class="selectbox-label">Choose a movie you enjoyed, and we'll recommend others that you'll love!</label>", unsafe_allow_html=True)
 selected_movie_name = st.selectbox('', movies['title'].values)
 
 # Check if the "Recommend" button is clicked
