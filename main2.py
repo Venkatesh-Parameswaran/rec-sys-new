@@ -1,4 +1,4 @@
-import streamlit as st
+eimport streamlit as st
 import pandas as pd
 import pickle
 import requests
@@ -46,8 +46,7 @@ page_bg_img = f'''
 </style>
 '''
 st.markdown(page_bg_img, unsafe_allow_html=True)
-else:
-    st.error("Background image not found. Please check the path.")
+
 
 # Example hero image URL (hosted online for reliability)
 hero_img_url = "https://example.com/path_to_your_hero_image.jpg"
