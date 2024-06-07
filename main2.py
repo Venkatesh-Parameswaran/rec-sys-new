@@ -104,7 +104,8 @@ st.markdown(
     '''
     <div class="welcome-message">
         <p>Welcome to MovieMate!</p>
-        <p>MovieMate offers you personalized movie recommendations tailored to your taste. Dive into a world of cinematic exploration and discover your next favorite film! Simply select a movie you love, hit the "Recommend" button, and let MovieMate suggest similar movies that you might enjoy. Explore, discover, and find your next cinematic adventure with MovieMate!</p>
+        <p>MovieMate offers you personalized movie recommendations tailored to your taste. Dive into a world of cinematic exploration and discover your next favorite film! 
+        Simply select a movie you love, hit the "Recommend" button, and let MovieMate suggest similar movies that you might enjoy. Explore, discover, and find your next cinematic adventure with MovieMate!</p>
     </div>
     ''', 
     unsafe_allow_html=True
