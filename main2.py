@@ -85,14 +85,21 @@ if st.button('Recommend'):
                             st.subheader('Genre')
                             st.write(movie_data['genre_names'])
 
-st.markdown("""
-    <style>
-        .stApp {
-            background-image: url("rec-sys-new/background4.jpeg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
+# Set background image using an online URL
+background_image_url = "path_to_your_local_image/background4.jpeg"
+
+page_bg_img = f'''
+<style>
+    .stApp {{
+        background-image: url("{background_image_url}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }}
+</style>
+'''
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
 
         .prediction-output { 
             font-family: 'Arial', sans-serif;
