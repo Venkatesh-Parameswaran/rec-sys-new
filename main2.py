@@ -43,12 +43,28 @@ page_bg_img = f'''
         background-repeat: no-repeat;
         background-attachment: fixed;
     }}
-    .stTitle {{
-        font-size: 48px;
-        color: #FFD700;
+    .title {{
         text-align: center;
+        margin-bottom: 0;
+    }}
+    .title-main {{
+        font-size: 64px;
+        color: #FFD700;
         font-family: 'Georgia', serif;
         text-shadow: 2px 2px #000000;
+    }}
+    .title-sub {{
+        font-size: 32px;
+        color: #FF4500;
+        font-family: 'Arial', sans-serif;
+    }}
+    .author {{
+        text-align: center;
+        font-size: 20px;
+        color: #FFFFFF;
+        font-family: 'Verdana', sans-serif;
+        margin-top: 0;
+        margin-bottom: 20px;
     }}
     .stSubheader {{
         font-size: 24px;
@@ -70,18 +86,24 @@ page_bg_img = f'''
         font-family: 'Verdana', sans-serif;
         margin-bottom: 20px;
     }}
+    .hero-image {{
+        margin-top: -20px;
+    }}
 </style>
 '''
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# Display hero image
-st.image(hero_img_url, use_column_width=True)
+# Streamlit web application title
+st.markdown('<div class="title"><h1 class="title-main">MovieMate</h1><h2 class="title-sub">Your Personalized Recommender</h2></div>', unsafe_allow_html=True)
+
+# Author name
+st.markdown('<div class="author">By Venkatesh</div>', unsafe_allow_html=True)
 
 # Welcome message
-st.markdown('<div class="welcome-message">Welcome to CineMate! Dive into a world of personalized movie recommendations and discover your next favorite film!</div>', unsafe_allow_html=True)
+st.markdown('<div class="welcome-message">Welcome to MovieMate! Dive into a world of personalized movie recommendations and discover your next favorite film!</div>', unsafe_allow_html=True)
 
-# Streamlit web application title
-st.markdown('<h1 class="stTitle">CineMate: Your Ultimate Movie Companion</h1>', unsafe_allow_html=True)
+# Display hero image
+st.image(hero_img_url, use_column_width=True, class_="hero-image")
 
 # Define your selectbox to choose the movie
 selected_movie_name = st.selectbox('What movie are you interested in?', movies['title'].values)
@@ -126,7 +148,7 @@ if st.button('Recommend'):
 # Thank you message
 st.markdown("""
 <h2 class="stSubheader">Thank You!</h2>
-<p class="stMarkdown">Thank you for using CineMate. We appreciate your interest and hope you found this application helpful.</p>
+<p class="stMarkdown">Thank you for using MovieMate. We appreciate your interest and hope you found this application helpful.</p>
 """, unsafe_allow_html=True)
 
 # Footer
@@ -145,6 +167,6 @@ st.markdown("""
 }
 </style>
 <div class="footer">
-    <p>© 2024 CineMate. All rights reserved. | Developed by Venkatesh</p>
+    <p>© 2024 MovieMate. All rights reserved. | Developed by Venkatesh</p>
 </div>
 """, unsafe_allow_html=True)
