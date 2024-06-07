@@ -88,7 +88,7 @@ if st.button('Recommend'):
 st.markdown("""
     <style>
         .stApp {
-            background-image: url("rec-sys-new/background4.jpg");
+            background-image: url("rec-sys-new/background4.jpeg");
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
