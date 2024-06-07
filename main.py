@@ -48,7 +48,7 @@ page_bg_img = f'''
         margin-bottom: 0;
     }}
     .title-main {{
-        font-size: 70px;
+        font-size: 79px;
         color: #FFD700;
         font-family: 'Georgia', serif;
         text-shadow: 2px 2px #000000;
