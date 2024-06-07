@@ -54,7 +54,7 @@ page_bg_img = f'''
         text-shadow: 2px 2px #000000;
     }}
     .title-sub {{
-        font-size: 32px;
+        font-size: 37px;
         color: #FF4500;
         font-family: 'Arial', sans-serif;
     }}
