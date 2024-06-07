@@ -33,7 +33,7 @@ def recommend_movies(movie_name, similarity_matrix, movie_data, top_n=10):
     return recommended_movies
 
 # Set background image using a local file
-background_image_path = "background4.jpeg"
+background_image_path = "https://github.com/Venkatesh-Parameswaran/rec-sys-new/blob/main/background4.jpg"
 
 # Ensure the background image file exists
 if os.path.isfile(background_image_path):
