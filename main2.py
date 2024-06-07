@@ -103,6 +103,7 @@ page_bg_img = f'''
     .selectbox-label {{
         font-size: 24px;
         color: #FFFFFF;
+        font-family: 'Arial', sans-serif;
     }}
 </style>
 '''
@@ -119,7 +120,7 @@ st.markdown(
     '''
     <div class="welcome-message">
         <h2 style="font-size: 30px; color: #FFFFFF;">Welcome to MovieMate!</h2>
-        <p>MovieMate offers you personalized movie recommendations tailored to your taste. Dive into a world of cinematic exploration and discover your next favorite film! 
+        <p>MovieMate offers you personalized movie recommendations tailored to your taste. Dive into a world of cinematic exploration and discover your next favorite film!</p>
         <p>Simply select a movie you love, hit the "Recommend" button, and let MovieMate suggest similar movies that you might enjoy. Explore, discover, and find your next cinematic adventure with MovieMate!</p>
     </div>
     ''', 
@@ -133,17 +134,16 @@ st.markdown(
 )
 
 # Define your selectbox to choose the movie
-st.markdown("<label class="selectbox-label">Choose a movie you enjoyed, and we'll recommend others that you'll love!</label>", unsafe_allow_html=True)
+st.markdown('<label class="selectbox-label">Choose a movie you enjoyed, and we\'ll recommend others that you\'ll love!</label>', unsafe_allow_html=True)
 selected_movie_name = st.selectbox('', movies['title'].values)
 
 # Check if the "Recommend" button is clicked
 if st.button('Recommend'):
+    st.markdown('<h2 class="stSubheader">Here are some movies you might like:</h2>', unsafe_allow_html=True)
     recommendations = recommend_movies(selected_movie_name, similarity, movies)
     if isinstance(recommendations, str):
         st.error(recommendations)  # Display an error message if the movie is not found
     else:
-        # Creative statement before displaying recommended movies
-        st.markdown('<h2 class="stSubheader" style="color: #FFD700;">Here are some movies you might enjoy:</h2>', unsafe_allow_html=True)
         num_recs = len(recommendations)  # All recommendations
         for i in range(0, num_recs, 2):
             col1, col2 = st.columns(2)
@@ -166,19 +166,19 @@ if st.button('Recommend'):
                         # Create an expander button to show additional information
                         expander = st.expander(f'More Info - {recommended_movie}')
                         with expander:
-                            st.markdown('<h2 class="stSubheader" style="color: #FFFFFF;">Overview</h2>', unsafe_allow_html=True)
-                            st.markdown(f'<div class="stMarkdown" style="color: #FFFFFF;">{movie_data["overview"]}</div>', unsafe_allow_html=True)
-                            st.markdown('<h2 class="stSubheader" style="color: #FFFFFF;">Lead Actors</h2>', unsafe_allow_html=True)
-                            st.markdown(f'<div class="stMarkdown" style="color: #FFFFFF;">{movie_data["actor"]}</div>', unsafe_allow_html=True)
-                            st.markdown('<h2 class="stSubheader" style="color: #FFFFFF;">Director</h2>', unsafe_allow_html=True)
-                            st.markdown(f'<div class="stMarkdown" style="color: #FFFFFF;">{movie_data["director"]}</div>', unsafe_allow_html=True)
-                            st.markdown('<h2 class="stSubheader" style="color: #FFFFFF;">Genre</h2>', unsafe_allow_html=True)
-                            st.markdown(f'<div class="stMarkdown" style="color: #FFFFFF;">{movie_data["genre_names"]}</div>', unsafe_allow_html=True)
+                            st.markdown('<h2 class="stSubheader">Overview</h2>', unsafe_allow_html=True)
+                            st.markdown(f'<div class="stMarkdown">{movie_data["overview"]}</div>', unsafe_allow_html=True)
+                            st.markdown('<h2 class="stSubheader">Lead Actors</h2>', unsafe_allow_html=True)
+                            st.markdown(f'<div class="stMarkdown">{movie_data["actor"]}</div>', unsafe_allow_html=True)
+                            st.markdown('<h2 class="stSubheader">Director</h2>', unsafe_allow_html=True)
+                            st.markdown(f'<div class="stMarkdown">{movie_data["director"]}</div>', unsafe_allow_html=True)
+                            st.markdown('<h2 class="stSubheader">Genre</h2>', unsafe_allow_html=True)
+                            st.markdown(f'<div class="stMarkdown">{movie_data["genre_names"]}</div>', unsafe_allow_html=True)
 
 # Thank you message
 st.markdown("""
-<h2 class="stSubheader" style="color: #FFFFFF;">Thank You!</h2>
-<p class="stMarkdown" style="color: #FFFFFF;">Thank you for using MovieMate. We appreciate your interest and hope you found this application helpful.</p>
+<h2 class="stSubheader">Thank You!</h2>
+<p class="stMarkdown">Thank you for using MovieMate. We appreciate your interest and hope you found this application helpful.</p>
 """, unsafe_allow_html=True)
 
 # Footer
