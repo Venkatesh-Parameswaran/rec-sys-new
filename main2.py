@@ -22,7 +22,7 @@ model_path = os.path.join(extract_dir, model_filename)
 model = tf.keras.models.load_model(model_path)
 
 # Set background image using an online URL
-background_image_url = "path_to_your_local_image/background4.jpeg"
+background_image_url = "https://github.com/Venkatesh-Parameswaran/rec-sys-new/blob/main/background4.jpg"
 
 page_bg_img = f'''
 <style>
