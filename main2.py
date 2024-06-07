@@ -49,7 +49,7 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
 # Example hero image URL (hosted online for reliability)
-hero_img_url = "https://example.com/path_to_your_hero_image.jpg"
+hero_img_url = "https://github.com/Venkatesh-Parameswaran/rec-sys-new/blob/main/hero%20img1.jpg"
 
 # Display hero image
 st.image(hero_img_url, use_column_width=True)
