@@ -68,11 +68,11 @@ page_bg_img = f'''
     }}
     .stSubheader {{
         font-size: 24px;
-        color: #FFD700;
+        color: #FFFFFF;
         font-family: 'Arial', sans-serif;
     }}
     .stMarkdown {{
-        color: #FFD700;
+        color: #FFFFFF;
         font-family: 'Arial', sans-serif;
     }}
     .expander-content {{
@@ -88,6 +88,17 @@ page_bg_img = f'''
     }}
     .hero-image {{
         margin-top: -20px;
+    }}
+    .footer {{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #0a0d36;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+        color: white;
     }}
 </style>
 '''
@@ -105,17 +116,17 @@ st.markdown(
     <div class="welcome-message">
         <h2 style="font-size: 24px; color: #FFFFFF;">Welcome to MovieMate!</h2>
         <p>MovieMate offers you personalized movie recommendations tailored to your taste. Dive into a world of cinematic exploration and discover your next favorite film! 
-        <p>Simply select a movie you love, hit the "Recommend" button, and let MovieMate suggest similar movies that you might enjoy. Explore, discover, and find your next cinematic adventure with MovieMate!</p>
+        Simply select a movie you love, hit the "Recommend" button, and let MovieMate suggest similar movies that you might enjoy. Explore, discover, and find your next cinematic adventure with MovieMate!</p>
     </div>
     ''', 
     unsafe_allow_html=True
 )
 
-
 # Display hero image
 st.markdown(
     f'<img src="{hero_img_url}" style="width:100%;" class="hero-image">', 
-    unsafe_allow_html=True )
+    unsafe_allow_html=True
+)
 
 # Define your selectbox to choose the movie
 selected_movie_name = st.selectbox('What movie are you interested in?', movies['title'].values)
@@ -165,19 +176,6 @@ st.markdown("""
 
 # Footer
 st.markdown("""
-<style>
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #0a0d36;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    color: white;
-}
-</style>
 <div class="footer">
     <p>© 2024 MovieMate. All rights reserved. | Developed by Venkatesh</p>
 </div>
