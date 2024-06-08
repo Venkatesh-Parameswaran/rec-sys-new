@@ -67,7 +67,7 @@ page_bg_img = f'''
         margin-bottom: 20px;
     }}
     .stSubheader {{
-        font-size: 27px;
+        font-size: 25px;
         color:#FF4500;
         font-family: 'Arial', sans-serif;
     }}
@@ -101,7 +101,7 @@ page_bg_img = f'''
         color: white;
     }}
     .selectbox-label {{
-        font-size: 24px;
+        font-size: 25px;
         color: #FFFFFF;
         font-family: 'Arial', sans-serif;
     }}
