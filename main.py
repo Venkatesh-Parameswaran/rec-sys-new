@@ -80,7 +80,7 @@ page_bg_img = f'''
         color: #FFD700;
     }}
     .welcome-message {{
-        font-size: 25px;
+        font-size: 30px;
         color: #FFFFFF;
         text-align: center;
         font-family: 'Verdana', sans-serif;
