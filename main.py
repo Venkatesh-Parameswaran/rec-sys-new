@@ -80,7 +80,7 @@ page_bg_img = f'''
         color: #FFD700;
     }}
     .welcome-message {{
-        font-size: 20px;
+        font-size: 25px;
         color: #FFFFFF;
         text-align: center;
         font-family: 'Verdana', sans-serif;
@@ -170,7 +170,7 @@ st.markdown(
 )
 
 # Define your selectbox to choose the movie
-st.markdown('<label class="selectbox-label" style="font-size: 32px;">Choose a movie you enjoyed, and we\'ll recommend others that you\'ll love!</label>', unsafe_allow_html=True)
+st.markdown('<label class="selectbox-label" style="font-size: 30px;">Choose a movie you enjoyed, and we\'ll recommend others that you\'ll love!</label>', unsafe_allow_html=True)
 selected_movie_name = st.selectbox('', movies['title'].values)
 
 # Check if the "Recommend" button is clicked
