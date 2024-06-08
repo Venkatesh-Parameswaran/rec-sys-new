@@ -67,7 +67,7 @@ page_bg_img = f'''
         margin-bottom: 20px;
     }}
     .stSubheader {{
-        font-size: 24px;
+        font-size: 27px;
         color:#FF4500;
         font-family: 'Arial', sans-serif;
     }}
@@ -155,7 +155,7 @@ st.markdown('<div class="author">By Venkatesh</div>', unsafe_allow_html=True)
 st.markdown(
     '''
     <div class="welcome-message">
-        <h2 style="font-size: 30px; color: #FFFFFF;">Welcome to MovieMate!</h2>
+        <h2 style="font-size: 32px; color: #FFFFFF;">Welcome to MovieMate!</h2>
         <p>MovieMate offers you personalized movie recommendations tailored to your taste. Dive into a world of cinematic exploration and discover your next favorite film!</p>
         <p>Simply select a movie you love, hit the "Recommend" button, and let MovieMate suggest similar movies that you might enjoy. Explore, discover, and find your next cinematic adventure with MovieMate!</p>
     </div>
@@ -170,7 +170,7 @@ st.markdown(
 )
 
 # Define your selectbox to choose the movie
-st.markdown('<label class="selectbox-label" style="font-size: 30px;">Choose a movie you enjoyed, and we\'ll recommend others that you\'ll love!</label>', unsafe_allow_html=True)
+st.markdown('<label class="selectbox-label" style="font-size: 28px;">Choose a movie you enjoyed, and we\'ll recommend others that you\'ll love!</label>', unsafe_allow_html=True)
 selected_movie_name = st.selectbox('', movies['title'].values)
 
 # Check if the "Recommend" button is clicked
