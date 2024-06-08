@@ -68,7 +68,7 @@ page_bg_img = f'''
     }}
     .stSubheader {{
         font-size: 24px;
-        color: #FFFFFF;
+        color:#FF4500;
         font-family: 'Arial', sans-serif;
     }}
     .stMarkdown {{
