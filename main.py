@@ -15,14 +15,14 @@ st.markdown(
     f"""
     <style>
     .stApp {{
-        background-image: url("{background_image_url}");
+        background: url("{background_image_url}");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
-        background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for Streamlit elements */
-        color: #333333; /* Darker gray font color */
-        font-size: 18px; /* Font size */
-        font-family: Arial, sans-serif; /* Font family */
+    }}
+    .main {{
+        background: rgba(255, 255, 255, 0.7); /* Semi-transparent background for Streamlit elements */
+        padding: 10px;
     }}
     .stTextInput, .stSelectbox, .stTextArea {{
         color: #333333 !important; /* Darker gray font color for input elements */
