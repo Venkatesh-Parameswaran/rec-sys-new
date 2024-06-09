@@ -7,20 +7,42 @@ import numpy as np
 pipe = pickle.load(open('pipe.pkl', 'rb'))
 df = pd.read_csv('new_laptop.csv')
 
-# Set the background image
-background_image_url = "https://i.pinimg.com/564x/c1/65/be/c165be894772f75383be93c07e3a35ff.jpg"
+# Set the background image URL
+background_image_url = "https://raw.githubusercontent.com/Venkatesh-Parameswaran/Laptop-Price-Predictor/main/laptop%20bk2.jpg"
 
-page_bg_img = f'''
-<style>
-    .stApp {{
+# Add some styling to the page
+st.markdown(
+    f"""
+    <style>
+    body {{
         background-image: url("{background_image_url}");
         background-size: cover;
-        background-repeat: no-repeat;
+        background-position: center;
         background-attachment: fixed;
     }}
-    .title {{
-        text-align: center;
-        margin-bottom: 0;
+    .stApp {{
+        background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for Streamlit elements */
+        color: #333333; /* Darker gray font color */
+        font-size: 18px; /* Font size */
+        font-family: Arial, sans-serif; /* Font family */
+    }}
+    .stTextInput, .stSelectbox, .stTextArea {{
+        color: #333333 !important; /* Darker gray font color for input elements */
+    }}
+    .stButton>button {{
+        color: #333333 !important; /* Darker gray font color for buttons */
+    }}
+    .stDataFrame td, .stDataFrame th {{
+        color: #333333 !important; /* Darker gray font color for dataframes */
+    }}
+    .stMarkdown {{
+        color: #333333; /* Darker gray font color for markdown */
+    }}
+    .stMarkdown a {{
+        color: #0044cc; /* Darker blue font color for links */
+    }}
+    .stAlert > div > div > div > div, .stException > div > div > div > div {{
+        color: #333333 !important; /* Darker gray font color for alerts and exceptions */
     }}
     .title-main {{
         font-size: 79px;
@@ -35,13 +57,10 @@ page_bg_img = f'''
     }}
     .welcome-message {{
         font-size: 30px;
-        color: #FFFFFF;
+        color: #333333;
         text-align: center;
         font-family: 'Verdana', sans-serif;
         margin-bottom: 20px;
-    }}
-    .hero-image {{
-        margin-top: -20px;
     }}
     .footer {{
         position: fixed;
@@ -56,34 +75,31 @@ page_bg_img = f'''
     }}
     .selectbox-label {{
         font-size: 25px;
-        color: #FFFFFF;
+        color: #333333;
         font-family: 'Arial', sans-serif;
     }}
     .stSubheader {{
         font-size: 25px;
-        color:#FF4500;
-        font-family: 'Arial', sans-serif;
-    }}
-    .stMarkdown {{
-        color: #FFFFFF;
+        color: #0044cc;
         font-family: 'Arial', sans-serif;
     }}
     .expander-content {{
         background-color: rgba(0, 0, 0, 0.7);
         color: #FFD700;
     }}
-</style>
-'''
-st.markdown(page_bg_img, unsafe_allow_html=True)
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Title and Subtitle
-st.markdown('<div class="title"><h1 class="title-main">LapValue Predictor</h1><h2 class="title-sub">Find Your Laptop’s Worth Instantly!</h2></div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align:center"><h1 class="title-main">LapValue Predictor</h1><h2 class="title-sub">Find Your Laptop’s Worth Instantly!</h2></div>', unsafe_allow_html=True)
 
 # Welcome Message
 st.markdown(
     '''
     <div class="welcome-message">
-        <h2 style="font-size: 32px; color: #FFFFFF;">Welcome to LapValue Predictor!</h2>
+        <h2 style="font-size: 32px;">Welcome to LapValue Predictor!</h2>
         <p>LapValue Predictor helps you estimate the value of your laptop based on its specifications. Just input the details, and get an instant price prediction!</p>
     </div>
     ''', 
@@ -93,7 +109,7 @@ st.markdown(
 # Hero Image
 hero_img_url = "https://path_to_your_hero_image/laptop_hero.jpg"
 st.markdown(
-    f'<img src="{hero_img_url}" style="width:100%;" class="hero-image">', 
+    f'<img src="{hero_img_url}" style="width:100%;" class="hero-image">',
     unsafe_allow_html=True
 )
 
@@ -141,7 +157,7 @@ if st.button('Predict Price'):
     query = np.array([company, type, ram, weight, touchscreen, ips, ppi, cpu, hdd, ssd, gpu, os])
     query = query.reshape(1, 12)
     predicted_price = np.exp(pipe.predict(query)[0])
-    st.markdown(f'<h2 style="color: white;">The predicted price of this configuration is ${int(predicted_price)}</h2>', unsafe_allow_html=True)
+    st.markdown(f'<h2 style="color: #333333;">The predicted price of this configuration is ${int(predicted_price)}</h2>', unsafe_allow_html=True)
 
 # Thank You Message
 st.markdown("""
