@@ -14,13 +14,11 @@ background_image_url = "https://i.pinimg.com/564x/3f/1f/32/3f1f323e66f9b1fea2eeb
 st.markdown(
     f"""
     <style>
-    body {{
+    .stApp {{
         background-image: url("{background_image_url}");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
-    }}
-    .stApp {{
         background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for Streamlit elements */
         color: #333333; /* Darker gray font color */
         font-size: 18px; /* Font size */
