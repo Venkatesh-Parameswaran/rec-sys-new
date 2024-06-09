@@ -8,7 +8,7 @@ pipe = pickle.load(open('pipe.pkl', 'rb'))
 df = pd.read_csv('new_laptop.csv')
 
 # Set the background image
-background_image_url = "https://i.pinimg.com/564x/c1/65/be/c165be894772f75383be93c07e3a35ff.jpg"
+background_image_url = "https://path_to_your_image/laptop%20bk2.jpg"
 
 page_bg_img = f'''
 <style>
@@ -91,7 +91,7 @@ st.markdown(
 )
 
 # Hero Image
-hero_img_url = "https://your_hero_image_url.com/laptop_hero.jpg"
+hero_img_url = "https://path_to_your_hero_image/laptop_hero.jpg"
 st.markdown(
     f'<img src="{hero_img_url}" style="width:100%;" class="hero-image">', 
     unsafe_allow_html=True
