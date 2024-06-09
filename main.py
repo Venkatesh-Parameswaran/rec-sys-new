@@ -40,7 +40,7 @@ page_bg_img = f'''
     .stApp {{
         background-image: url("{background_image_url}");
         background-size: cover;
-        background-position: top;
+        # background-position: top;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }}
